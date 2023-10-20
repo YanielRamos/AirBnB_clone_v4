@@ -1,64 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}">
-    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}">
+    <!-- Link to a CSS file for common styles with a cache identifier. -->
+
+    <link rel="stylesheet" type="text css" href="../static/styles/3-header.css?{{ cache_id }}">
+    <!-- Link to a CSS file for header styles with a cache identifier. -->
+
     <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{ cache_id }}">
+    <!-- Link to a CSS file for footer styles with a cache identifier. -->
+
     <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?{{ cache_id }}">
+    <!-- Link to a CSS file for filter styles with a cache identifier. -->
+
     <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}">
+    <!-- Link to a CSS file for place styles with a cache identifier. -->
+
     <link rel="icon" href="../static/images/icon.png?{{ cache_id }}">
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="../static/scripts/3-hbnb.js?{{ cache_id }}" defer></script>
+    <!-- Link to a website icon with a cache identifier. -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Link to the jQuery library hosted on a content delivery network. -->
+
+    <script src="../static/scripts/3-hbnb.js?{{ cache_id }}" defer></script>
+    <!-- Link to a JavaScript file with a cache identifier and 'defer' attribute. -->
+
     <title>HBnB</title>
   </head>
   <body>
     <header>
+      <!-- Header section -->
+      <div id="api_status" style="float: right; border-radius: 50%; height: 40px; width: 40px; align-items: center; margin-top: 15px; margin-right: 30px; background-color: #cccccc;"></div>
+      <!-- API status indicator with styles -->
+      <div class="logo"></div>
+      <!-- Logo image -->
+    </header>
+    <!-- End header section -->
 
-		<div id="api_status" style="float: right; border-radius: 50%;
-		height: 40px; width: 40px; align-items: center;margin-top: 15px; margin-right: 30px; background-color: #cccccc;"></div>
-	<div class="logo"></div>
-	</header>
     <div class="container">
+      <!-- Main content container -->
       <section class="filters">
-	<div class="locations">
-	  <h3>States</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for state in states %}
-	      <li>
-		<h2>{{ state[0].name }}:</h2>
-		<ul>
-		  {% for city in state[1] %}
-		  <li>{{ city.name }}</li>
-		  {% endfor %}
-		</ul>
-	      </li>
-	      {% endfor %}
-	    </ul>
-	  </div>
-	</div>
-	<div class="amenities">
-	  <h3>Amenities</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for amenity in amenities %}
-		  <li><input type="checkbox" style="width: 10px; height: 10px" data-id="{{amenity.id}}" data-name="{{amenity.name}}">{{ amenity.name }}</li>
-	      {% endfor %}
-	    </ul>
-	  </div>
-	</div>
-	<button type="button">Search</button>
+        <!-- Filters section -->
+        <div class="locations">
+          <!-- Location filters -->
+          <h3>States</h3>
+          <h4>&nbsp;</h4>
+          <div class="popover">
+            <!-- Popover for state selection -->
+            <ul>
+              {% for state in states %}
+              <!-- Loop through states -->
+              <li>
+                <!-- State list item -->
+                <h2>{{ state[0].name }}:</h2>
+                <!-- Display state name -->
+                <ul>
+                  {% for city in state[1] %}
+                  <!-- Loop through cities in the state -->
+                  <li>{{ city.name }}</li>
+                  <!-- Display city name -->
+                  {% endfor %}
+                </ul>
+              </li>
+              <!-- End state list item -->
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <!-- End location filters -->
+        <div class="amenities">
+          <!-- Amenity filters -->
+          <h3>Amenities</h3>
+          <h4>&nbsp;</h4>
+          <div class="popover">
+            <!-- Popover for amenity selection -->
+            <ul>
+              {% for amenity in amenities %}
+              <!-- Loop through amenities -->
+              <li>
+                <input type="checkbox" style="width: 10px; height: 10px" data-id="{{amenity.id}}" data-name="{{amenity.name}}">
+                <!-- Display amenity name with checkbox and data attributes -->
+                {{ amenity.name }}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <!-- End amenity filters -->
+        <button type="button">Search</button>
+        <!-- Search button -->
       </section>
       <div class="placesh1"><h1>Places</h1></div>
+      <!-- Header for the Places section -->
       <section class="places">
-	
+      <!-- Places section (empty in this example) -->
       </section>
     </div>
+    <!-- End main content container -->
     <footer>
       <p>Holberton School</p>
     </footer>
+    <!-- Footer section -->
   </body>
 </html>
