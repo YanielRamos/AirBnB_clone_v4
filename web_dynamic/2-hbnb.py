@@ -73,4 +73,3 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
     # If so, run the Flask application with specified settings (host, port, and debug mode).
 
-These comments should help you understand the purpose of each line and the overall functionality of the script in `2-hbnb.py`.
